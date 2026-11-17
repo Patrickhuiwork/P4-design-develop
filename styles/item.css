@@ -1,0 +1,172 @@
+/* Device Info Section */
+
+.deviceInfo {
+    display: flex;
+    flex-direction: row;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: var(--lg);
+}
+
+
+/* thumbnail image and price tag using subgrid template */
+.thumbnailContainer {
+    position: relative;
+}
+
+.thumbnailImage {
+    grid-column: 1/-1;
+    grid-row: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: calc(var(--xs) + var(--sm));
+}
+
+.priceTag {
+    position: absolute;
+    right: var(--sm);
+    bottom: var(--sm);
+    align-self: end;
+    margin-bottom: var(--sm);
+    margin-right: var(--sm);
+    display: flex;
+    flex-direction: column;
+    z-index: 200;
+    padding: var(--sm) var(--md);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: var(--primary-color);
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--xs);
+    backdrop-filter: blur(var(--xs));
+
+    /* Hide the overlayed price tag on mobile devices */
+
+    @media (max-width:768px) {
+        display: none;
+    }
+}
+
+.priceTag p {
+    font-size: var(--fs-xl);
+}
+
+.priceTagMobile {
+    display: none;
+
+    /* Show the price tag on mobile devices */
+
+    @media (max-width:768px) {
+        display: flex;
+        flex-direction: row;
+        gap: var(--lg);
+        align-items: center;
+        font-size: var(--fs-xl);
+
+        p {
+            font-size: var(--fs-xl);
+        }
+    }
+
+}
+
+/* Maker info section */
+
+.makerInfo {
+    display: flex;
+    flex-direction: column;
+    gap: var(--md);
+}
+
+.informationGrid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: var(--md);
+    row-gap: var(--lg);
+}
+
+.timeRanges {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sm);
+}
+
+.timeInfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--lg);
+
+    @media (max-width:768px) {
+        justify-content: center;
+        gap: var(--xl);
+    }
+}
+
+.timeInfo div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.time p {
+    font-size: var(--fs-xl);
+}
+
+/* Suggested devices */
+
+.cardImage {
+    border-radius: calc(var(--xs) + var(--sm));
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    transition: filter 0.3s ease-in-out;
+}
+
+.imageLink {
+    height: 100%;
+    display: block;
+}
+
+.imageLink:hover .cardImage {
+    filter: brightness(80%);
+}
+
+.cardLayout {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: var(--md);
+    row-gap: var(--lg);
+}
+
+.itemCard {
+    display: flex;
+    flex-direction: column;
+    gap: var(--md);
+}
+
+.itemCard h2 {
+    font-size: var(--fs-md);
+    padding: 0 var(--sm);
+}
+
+.cardInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--sm);
+    padding-bottom: var(--sm);
+
+}
+
+.cardInfo p {
+    font-size: var(--fs-lg);
+
+}

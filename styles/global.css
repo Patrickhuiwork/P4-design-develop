@@ -1,0 +1,338 @@
+:root {
+
+    /* defined css variables for colors, spacing, and font sizes */
+
+    --primary-color: #ffffff;
+    --secondary-color: #000000;
+    --tertiary-color: #B3B3B3;
+    --quaternary-color: #4D4D4D;
+    --quinary-color: #5050FF;
+    --xs: .5rem;
+    --sm: 1rem;
+    --md: 1.5rem;
+    --lg: 2.5rem;
+    --xl: 3.5rem;
+    --fs-2xl: 4rem;
+    --fs-xl: 2.5rem;
+    --fs-lg: 1.5rem;
+    --fs-md: 1.0rem;
+    --fs-sm: 0.75rem;
+    --fs-xs: 0.5rem;
+    font-family: Arial, sans-serif;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        line-height: 1.2;
+        margin: 0;
+        font-weight: 400;
+        text-wrap: balance;
+    }
+
+    h1 {
+        font-size: var(--fs-2xl);
+    }
+
+    h2 {
+        font-size: var(--fs-xl);
+    }
+
+    h3 {
+        font-size: var(--fs-lg);
+    }
+
+    p {
+        font-size: var(--fs-md);
+    }
+
+
+
+    p,
+    a,
+    span,
+    ul,
+    li {
+        line-height: 1.5;
+        margin: 0;
+    }
+
+
+
+    /* Media query for mobile devices */
+
+    @media (max-width:768px) {
+
+        --xs: .25rem;
+        --sm: .5rem;
+        --md: 1.0rem;
+        --lg: 1.75rem;
+        --xl: 2.0rem;
+        --fs-2xl: 2.5rem;
+        --fs-xl: 1.75rem;
+        --fs-lg: 1.25rem;
+        --fs-md: 1.0rem;
+        --fs-sm: 0.75rem;
+        --fs-xs: 0.5rem;
+
+        .main.grid {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Reorder elements for mobile view */
+
+        .thumbnailContainer {
+            order: -1;
+        }
+
+        .toolsNeeded {
+            order: 2;
+        }
+
+        .skillsNeeded {
+            order: 2;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: column;
+            gap: var(--md);
+            padding-top: var(--md);
+        }
+
+        .headerGrid {
+            row-gap: var(--md);
+        }
+
+        .homeLinks {
+            grid-column: 1/7
+        }
+
+        .navLinks {
+            grid-column: 7/13;
+            justify-content: flex-end;
+        }
+
+        .searchBar {
+            grid-column: 1/-1;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .instructionsButton {
+            width: 100%;
+            text-align: center;
+            box-sizing: border-box;
+        }
+    }
+}
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: var(--md);
+    row-gap: var(--lg);
+    width: 100%;
+}
+
+.headerGrid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: var(--md);
+    row-gap: var(--lg);
+    width: 100%;
+}
+
+
+.main {
+    padding: var(--sm) var(--xl);
+    box-sizing: border-box;
+    padding-bottom: var(--xl);
+}
+
+.fullSpan {
+    grid-column: span 12;
+    display: flex;
+    flex-direction: column;
+    gap: var(--md);
+}
+
+.halfSpan {
+    grid-column: span 6;
+    display: flex;
+    flex-direction: column;
+    gap: var(--md);
+
+    @media (max-width:768px) {
+        grid-column: span 12;
+    }
+}
+
+.halfSpanLeft {
+    grid-column: span 5;
+    display: flex;
+    flex-direction: column;
+    gap: var(--md);
+
+    @media (max-width:768px) {
+        grid-column: span 12;
+    }
+}
+
+.halfSpanRight {
+    grid-column: 7/13;
+    display: flex;
+    flex-direction: column;
+    gap: var(--md);
+
+    @media (max-width:768px) {
+        grid-column: span 12;
+    }
+}
+
+.textBlock {
+    display: flex;
+    flex-direction: column;
+    gap: var(--md);
+}
+
+/* Button styles */
+
+.button,
+.instructionsButton {
+    padding: var(--xs) var(--sm);
+    border: none;
+    border-radius: var(--xl);
+    background-color: var(--primary-color);
+    color: var(--quinary-color);
+    border: 2px solid var(--tertiary-color);
+    cursor: pointer;
+    font-size: var(--fs-md);
+    width: fit-content;
+    font-style: italic;
+}
+
+.instructionsButton:hover {
+    transition: all 0.3s ease-in-out;
+    background-color: var(--quinary-color);
+    color: var(--primary-color);
+    border: 2px solid var(--quinary-color);
+}
+
+.button:hover {
+    transition: all 0.3s ease-in-out;
+    background-color: var(--quinary-color);
+    color: var(--primary-color);
+    border: 2px solid var(--quinary-color);
+}
+
+.button:focus {
+    border: 2px solid var(--secondary-color);
+}
+
+.instructionsButton:focus {
+    border: 2px solid var(--secondary-color);
+}
+
+
+/* Header styles */
+
+.header {
+    position: sticky;
+    top: 0;
+    padding: var(--sm) var(--xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sm);
+    background-color: var(--primary-color);
+    z-index: 300;
+}
+
+.header .headerGrid {
+    align-items: center;
+}
+
+.homeLinks {
+    grid-column: 1 / 5;
+}
+
+.navLinks {
+    grid-column: 5 / 9;
+    justify-content: center;
+    display: flex;
+}
+
+.homeLinks:hover {
+    transition: all 0.3s ease-in-out;
+    color: var(--quinary-color);
+}
+
+.navLinks:hover {
+    transition: all 0.3s ease-in-out;
+    color: var(--quinary-color);
+}
+
+.searchBar {
+    grid-column: 9 / 13;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--secondary-color);
+    border-radius: var(--xl);
+    color: var(--quaternary-color);
+    padding: var(--sm) var(--md);
+    gap: var(--sm);
+}
+
+.searchInput {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: var(--fs-md);
+}
+
+.searchButton {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: none;
+    color: var(--quaternary-color);
+    cursor: pointer;
+    aspect-ratio: 1/1;
+    width: var(--md);
+    height: var(--md);
+}
+
+.searchButton img {
+    width: var(--md);
+    height: var(--md);
+}
+
+.breadCrumbs {
+    color: var(--tertiary-color);
+    gap: var(--xs);
+    text-decoration: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+a.highlight {
+    color: var(--quinary-color);
+}
+
